@@ -9,7 +9,6 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('home.html', views.home, name="Home"),
     path('tienda.html/', views.tienda, name="Tienda"),
-    path('contacto.html/', views.contacto, name="Contacto"),
 ]
 
 # AGREGAMOS ESTA LINEA PARA QUE PODAMOS VISUALIZAR IMG´S (NO ENTIENDO DEL TODO QUE HACE)
