@@ -7,7 +7,6 @@ def home(request):
     # Para probar funcionamiento cuando no habia archivo html creado.
     # return HttpResponse('Home')
 
-def tienda(request):
-    return render(request,'ProyectoWebApp/tienda.html')
+
 
 

@@ -23,4 +23,5 @@ urlpatterns = [
     # Agregamos el path del blog urls.py
     path('blog/', include('blog.urls')),
     path('contacto/', include('contacto.urls')),
+    path('tienda/', include('tienda.urls')),
 ]

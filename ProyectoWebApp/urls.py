@@ -8,7 +8,6 @@ from django.conf.urls.static import static
 # Pasamos los path menos la ruta admin
 urlpatterns = [
     path('home.html', views.home, name="Home"),
-    path('tienda.html/', views.tienda, name="Tienda"),
 ]
 
 # AGREGAMOS ESTA LINEA PARA QUE PODAMOS VISUALIZAR IMG´S (NO ENTIENDO DEL TODO QUE HACE)
