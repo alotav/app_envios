@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic import View
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import login, logout
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 # Create your views here.
 
@@ -27,3 +27,22 @@ def cerrar_sesion(request):
     logout(request)
     
     return redirect("Home")
+
+def loguear(request):
+    if request.method == "POST":
+        form = AuthenticationForm(request, data = request.POST)
+        if form.is_valid():
+            nombre_usuario = form.cleaned_data.get("username")
+            contra = form.cleaned_data.get("password")
+            # Comprobamos si existe en db un usuario con los datos ingresados:
+            usuario = authenticate(username = nombre_usuario, password = contra)
+            if usuario is not None:
+                login(request, usuario)
+                return redirect("Home")
+            else:
+                messages.error(request, "Usuario no valido")
+        else:
+            messages.error(request, "Informacion incorrecta")
+    
+    form = AuthenticationForm()
+    return render(request, 'login/login.html', {'form':form})

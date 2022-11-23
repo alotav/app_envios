@@ -5,10 +5,22 @@
 <!-- Indicamos que este es el contenido de la pagina a la plantilla base -->
 {% block content %}
 
-<div style="float:right; margin-right:2em; margin-top: 3em;">
-   <!-- <p style="color:white;">Total:  $ {{importe_total_carro }}</p> -->
-   {% include "carro/widget.html" %}
-</div>
+
+<!-- Agregamos el carro si estamos autenticados: -->
+
+{% if user.is_authenticated %}
+    
+    <div style="float:right; margin-right:2em; margin-top: 3em;">
+    {% include "carro/widget.html" %}
+    </div>
+{% else %}
+
+    <div style="float:right; margin-right:2em; margin-top: 3em;" class="alert alert-danger">
+        Login para ver carro
+    </div>
+
+{% endif %}
+
 
 <div class="row" style="margin: 1rem;">
 

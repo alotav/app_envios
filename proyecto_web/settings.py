@@ -14,6 +14,7 @@ from distutils.command.config import config
 from pathlib import Path
 import os
 from decouple import config
+from django.contrib.messages import constants as mensajes_error
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -116,7 +117,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-ar'
 
 TIME_ZONE = 'UTC'
 
@@ -152,3 +153,12 @@ EMAIL_HOST_PASSWORD=config('EMAIL_HOST_PASSWORD')
 
 # Cargamos crispy a bootstrap:
 CRISPY_TEMPLATE_PACK='bootstrap4'
+
+
+MESSAGE_TAGS={
+    mensajes_error.DEBUG:'debug',
+    mensajes_error.INFO:'info',
+    mensajes_error.SUCCESS:'succsess',
+    mensajes_error.WARNING:'warning',
+    mensajes_error.ERROR:'danger',
+}
