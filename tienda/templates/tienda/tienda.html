@@ -5,6 +5,11 @@
 <!-- Indicamos que este es el contenido de la pagina a la plantilla base -->
 {% block content %}
 
+<div style="float:right; margin-right:2em; margin-top: 3em;">
+   <!-- <p style="color:white;">Total:  $ {{importe_total_carro }}</p> -->
+   {% include "carro/widget.html" %}
+</div>
+
 <div class="row" style="margin: 1rem;">
 
         {% for producto in productos %}
@@ -15,10 +20,16 @@
                 <h5 class="card-title">{{producto.nombre}}</h5>
                 <p class="card-text">${{producto.precio}}</p>
                 </div>
+                <div class="card-footer center">
+
+                    <a href="{% url 'carro:agregar' producto.id %}" class="btn btn-success">Agregar al carro</a>
+
+                </div>
+
             </div>
         <!-- </div> -->
        {% endfor %}
-    
+       
 </div>
 
 {% endblock %}

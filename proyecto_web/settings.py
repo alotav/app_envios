@@ -46,6 +46,9 @@ INSTALLED_APPS = [
     'blog',
     'contacto',
     'tienda',
+    'carro',
+    'autenticacion',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -71,6 +74,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'carro.context_processor.importe_total_carro',
             ],
         },
     },
@@ -145,3 +149,6 @@ EMAIL_PORT=config('EMAIL_PORT')
 EMAIL_HOST_USER=config('EMAIL_HOST_USER')
 # pwd de aplicacion:
 EMAIL_HOST_PASSWORD=config('EMAIL_HOST_PASSWORD')
+
+# Cargamos crispy a bootstrap:
+CRISPY_TEMPLATE_PACK='bootstrap4'
