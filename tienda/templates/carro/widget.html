@@ -51,6 +51,19 @@
 
             </td>
         </tr>
+        
+        {% if request.session.carro.items %}
+                
+                <tr>
+                    <td colspan="3" class="text-center">
+
+                        <a href="#" class="btn btn-success">Confirmar Pedido</a>
+
+                    </td>
+                </tr>
+        
+        {% endif %}
+
     </tfoot>
 
 </table>
